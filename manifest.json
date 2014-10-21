@@ -9,7 +9,17 @@
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
+
+  "web_accessible_resources" : ["spencer_is_handsome.js"],
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["script.js"]
+    }
+  ],
+
   "permissions": [
-    "https://secure.flickr.com/"
+    "http://spencersmitherman.com/"
   ]
 }
