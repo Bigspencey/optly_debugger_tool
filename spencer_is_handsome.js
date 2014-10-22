@@ -1,16 +1,10 @@
 function snippetLocation() {
-	if ($('head').find($('script[src*="//cdn.optimizely.com/"]')).length > 0) {
-		console.log("OK: The snippet is in the <head>.")
-	} else if ($('body').find($('script[src*="//cdn.optimizely.com/"]')).length > 0) {
-		console.log("Warning: The snippet is in the <body>.")
-	} else {
-		console.log("The snippet could not be found on the page.")
-	}
+	var headScripts = document.head.getElementsByTagName("script")
+
 }
 
 function experimentInfo() {
 	if (window.optimizely !== undefined) {
-	
 		if (window.optimizely.activeExperiments.length > 0) {
 			for (var i = 0; window.optimizely.activeExperiments.length > i; i++) {
 				console.log("Optimizely Active Experiment: " + window.optimizely.activeExperiments[i] + " : " + window.optimizely.variationNamesMap[window.optimizely.activeExperiments[i]]);
@@ -24,6 +18,16 @@ function experimentInfo() {
 
 function printToConsole() {
 	snippetLocation();
+	experimentInfo();
 }
 
 printToConsole();
+
+
+// if ($('head').find($('script[src*="//cdn.optimizely.com/"]')).length > 0) {
+// 	console.log("OK: The snippet is in the <head>.")
+// } else if ($('body').find($('script[src*="//cdn.optimizely.com/"]')).length > 0) {
+// 	console.log("Warning: The snippet is in the <body>.")
+// } else {
+// 	console.log("The snippet could not be found on the page.")
+// }
