@@ -20,7 +20,7 @@ function snippetLocation() {
 	if (headSearch(headScripts)) {
 		console.log("OK: The snippet is in the <head>.")
 	} else if (bodySearch(bodyScripts)){
-		console.log("Warning: The snippet is in the <body>.")
+		console.log("WARNING: The snippet is in the <body>.")
 	} else {
 		console.log("The snippet could not be found on the page.")
 	}
@@ -45,12 +45,3 @@ function printToConsole() {
 }
 
 printToConsole();
-
-
-// if ($('head').find($('script[src*="//cdn.optimizely.com/"]')).length > 0) {
-// 	console.log("OK: The snippet is in the <head>.")
-// } else if ($('body').find($('script[src*="//cdn.optimizely.com/"]')).length > 0) {
-// 	console.log("Warning: The snippet is in the <body>.")
-// } else {
-// 	console.log("The snippet could not be found on the page.")
-// }
