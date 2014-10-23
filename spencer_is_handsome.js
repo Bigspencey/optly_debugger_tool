@@ -14,15 +14,23 @@ function bodySearch(bodyScripts) {
 	}
 }
 
+function objectSearch() {
+	if (typeof window.optimizely !== undefined) {
+		console.log("OK: The Optimizely object is defined.");
+	} else {
+		console.log("WARNING: The Optimizely object is not defined.");
+	}
+}
+
 function snippetLocation() {
 	var headScripts = document.head.getElementsByTagName("script");
 	var bodyScripts = document.body.getElementsByTagName("script");
 	if (headSearch(headScripts)) {
-		console.log("OK: The snippet is in the <head>.")
+		console.log("OK: The snippet is in the <head>.");
 	} else if (bodySearch(bodyScripts)){
-		console.log("WARNING: The snippet is in the <body>.")
+		console.log("WARNING: The snippet is in the <body>.");
 	} else {
-		console.log("The snippet could not be found on the page.")
+		console.log("The snippet could not be found on the page.");
 	}
 }
 
@@ -33,13 +41,14 @@ function experimentInfo() {
 				console.log("Optimizely Active Experiment: " + window.optimizely.activeExperiments[i] + " : " + window.optimizely.variationNamesMap[window.optimizely.activeExperiments[i]]);
 			}
 		} else {
-			console.log("There are no active experiments on this page.")
+			console.log("There are no active experiments on this page.");
 		}
-		console.log("Optimizely Revision: " + window.optimizely.revision)
+		console.log("Optimizely Revision: " + window.optimizely.revision);
 	}
 }
 
 function printToConsole() {
+	objectSearch();
 	snippetLocation();
 	experimentInfo();
 }
